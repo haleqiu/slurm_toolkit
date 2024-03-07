@@ -21,7 +21,7 @@ This tool automates the creation of SLURM job scripts from experiment configurat
 
 ## Usage
 
-1. Edit `generate_slurm_scripts.sh` to specify:
+1. Edit `slurm_from.sh` to specify:
     - The root directory containing your `.conf` files (`root_dir` variable).
     - The base directory where the SLURM scripts should be saved (`base_slurm_scripts_dir` variable).
     - The path to your `slurm_template.sh` file (`template_path` variable).
