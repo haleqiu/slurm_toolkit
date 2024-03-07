@@ -2,22 +2,12 @@
 
 This tool automates the creation of SLURM job scripts from experiment configuration files. It scans a specified directory for `.conf` files, generates a SLURM job script for each found configuration, and organizes the scripts into date-stamped directories.
 
-## Requirements
-
-- Bash shell
-- Access to a SLURM-managed compute cluster
-
 ## Setup
 
 1. **SLURM Script Template:** Prepare a SLURM script template named `slurm_template.sh` and place it in a known directory. Ensure the template includes placeholders for dynamic content:
     - `JOB_NAME_PLACEHOLDER` for the job name
     - `OUTPUT_DIR_PLACEHOLDER` for the output directory
     - `CONFIG_FILE_PLACEHOLDER` for the configuration file path
-
-2. **Script File:** Ensure `generate_slurm_scripts.sh` is in your desired location and has execute permissions:
-    ```bash
-    chmod +x generate_slurm_scripts.sh
-    ```
 
 ## Usage
 
@@ -28,7 +18,7 @@ This tool automates the creation of SLURM job scripts from experiment configurat
 
 2. Run the script:
     ```bash
-    ./generate_slurm_scripts.sh
+    ./slurm_from.sh
     ```
 
 3. SLURM job scripts will be generated in the specified base directory, organized into subdirectories named after the parent directory of each `.conf` file and the current date (e.g., `experimentName_YYYY-MM-DD`).
@@ -41,4 +31,14 @@ This tool automates the creation of SLURM job scripts from experiment configurat
 ## Notes
 
 - Ensure your SLURM script template (`slurm_template.sh`) matches your job requirements and environment settings.
-- Modify the placeholders in `generate_slurm_scripts.sh` as necessary to fit your specific project structure and requirements.
+- Modify the placeholders in `slurm_from.sh` as necessary to fit your specific project structure and requirements.
+
+## Submitting SLURM Scripts
+
+To efficiently submit all SLURM job scripts from a specified directory, utilize the `run_sbatch.sh` script. This facilitates the batch submission of multiple job scripts, streamlining the process.
+
+### Usage
+
+"""bash
+./run_sbatch.sh /path/to/slurm_scripts_directory
+"""
